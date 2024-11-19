@@ -1,0 +1,21 @@
+<header>
+	<div id="header_wrap">
+		<a href="/">home</a>
+        &nbsp;&nbsp;
+		<%
+            if (loginedMemberID === undefined) {
+        %>
+            <a href="/member/create_account_form">create account</a> 
+            &nbsp;&nbsp;
+            <a href="/member/member_login_form">login</a>
+        <%
+            } else {
+        %>
+            <a href="/member/member_modify_form">modify</a> 
+            &nbsp;&nbsp;
+            <a href="/member/member_logout_confirm">logout</a>
+        <%
+            }
+        %>
+	</div>
+</header>

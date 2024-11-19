@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../include/title.ejs') %>
+
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/create_account_form.css">
+    <link rel="stylesheet" href="/css/header_nav_footer.css">
+
+    <script src="/js/member_modify_form.js"></script>
+
+</head>
+<body>
+    
+    <%- include('../include/header.ejs') %>
+    <%- include('../include/nav.ejs') %>
+
+    <section>
+		<div id="section_wrap">
+			<div class="word">
+				MEMBER MODIFY FORM
+			</div>
+			<div class="create_account_form">
+				<form 	action="/member/member_modify_confirm" 
+						name="member_modify_form" 
+						method="post" 
+						enctype="multipart/form-data">
+					<input type="hidden" name="m_no" value="<%= loginedMember.M_NO %>">						
+					<input type="text" name="m_id" value="<%= loginedMember.M_ID %>" readonly disabled ><br>
+					<input type="password" name="m_pw" placeholder="INPUT PW"><br>
+					<input type="email" name="m_mail" value="<%= loginedMember.M_MAIL %>" placeholder="INPUT MAIL"><br>
+					<input type="text" name="m_phone" value="<%= loginedMember.M_PHONE %>" placeholder="INPUT PHONE"><br>
+					<img src="/<%= loginedMember.M_ID %>/<%= loginedMember.M_PROFILE_THUM %>"><br>
+					<input type="file" name="profile_file"><br>
+					<input type="button" value="member modify" onclick="memberModifyForm();">
+					<input type="reset" value="reset">
+				</form>
+			</div>
+            <div class="delete_account">
+				<a href="/member/member_delete_confirm">delete account</a>
+			</div>
+		</div>
+	</section>
+
+    <%- include('../include/footer.ejs') %>
+
+</body>
+</html>
